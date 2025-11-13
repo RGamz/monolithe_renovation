@@ -37,6 +37,24 @@
 <body>
     <div id="root"></div>
     
+    <!-- Hidden form for Netlify bot detection -->
+    <form name="renovation-quote" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="tel" name="phone" />
+        <textarea name="projectDescription"></textarea>
+        <input type="text" name="projectCategory" />
+        <input type="text" name="propertyType" />
+        <input type="text" name="propertyAge" />
+        <input type="text" name="renovationType" />
+        <input type="text" name="area" />
+        <input type="text" name="currentCondition" />
+        <input type="text" name="desiredFinish" />
+        <input type="text" name="timeline" />
+        <input type="text" name="zipCode" />
+        <input type="text" name="estimate" />
+    </form>
+    
     <!-- Load the app -->
     <script type="text/babel" src="app.jsx"></script>
     

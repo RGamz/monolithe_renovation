@@ -497,11 +497,30 @@ function RenovationWebsite() {
                 name="renovation-quote" 
                 method="POST" 
                 data-netlify="true"
+                data-netlify-honeypot="bot-field"
                 onSubmit={handleContactSubmit}
                 className="space-y-5"
               >
                 <input type="hidden" name="form-name" value="renovation-quote" />
+                
+                {/* All questionnaire data */}
+                <input type="hidden" name="projectCategory" value={formData.projectCategory} />
+                <input type="hidden" name="propertyType" value={formData.propertyType} />
+                <input type="hidden" name="propertyAge" value={formData.propertyAge} />
+                <input type="hidden" name="renovationType" value={formData.renovationType} />
+                <input type="hidden" name="area" value={formData.area} />
+                <input type="hidden" name="currentCondition" value={formData.currentCondition} />
+                <input type="hidden" name="desiredFinish" value={formData.desiredFinish} />
+                <input type="hidden" name="timeline" value={formData.timeline} />
+                <input type="hidden" name="zipCode" value={formData.zipCode} />
                 <input type="hidden" name="estimate" value={`€${estimate.low.toLocaleString()} - €${estimate.high.toLocaleString()}`} />
+                
+                {/* Honeypot field for spam protection - hidden from users */}
+                <p style={{display: 'none'}}>
+                  <label>
+                    Ne pas remplir si vous êtes humain : <input name="bot-field" />
+                  </label>
+                </p>
                 
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>

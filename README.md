@@ -389,6 +389,22 @@ basePrice *= locationMultiplier[formData.location] || 1;
 
 ## 🚀 Deployment Guide
 
+### Understanding Netlify Forms with React
+
+**Critical: Why the hidden HTML form is needed**
+
+Netlify's form detection bots only parse static HTML at build time. They cannot detect forms rendered by JavaScript/React. To make Netlify Forms work with React:
+
+1. **Static HTML Form** (in `index.html`): A hidden form that Netlify's bots can detect at build time
+2. **React Form** (in `app.jsx`): The actual form users interact with
+3. **Matching Names**: Both forms must have the same `name` attribute
+
+**How it works:**
+```
+Build Time: Netlify bot finds hidden HTML form → Sets up backend
+Runtime: User fills React form → Submits to Netlify backend → You get email
+```
+
 ### Quick Deploy to Netlify
 
 1. **Prepare files:**
@@ -408,6 +424,27 @@ basePrice *= locationMultiplier[formData.location] || 1;
    - Click "Settings & webhooks"
    - Add your email under "Form notifications"
    - Save
+
+### Spam Protection (Honeypot)
+
+The form includes a **honeypot field** (`bot-field`) for spam protection:
+
+- **Hidden from users**: CSS `display: none` hides it from real users
+- **Visible to bots**: Spam bots fill all fields, including hidden ones
+- **Netlify filters**: Submissions with honeypot filled are marked as spam
+
+**How it works:**
+```html
+<!-- In index.html -->
+<form name="renovation-quote" netlify netlify-honeypot="bot-field">
+
+<!-- In app.jsx -->
+<p style={{display: 'none'}}>
+  <label>Ne pas remplir : <input name="bot-field" /></label>
+</p>
+```
+
+Real users never see this field. Bots do and fill it = spam detected!
 
 ### Testing Locally
 
@@ -481,12 +518,42 @@ Add tracking code to `index.html` before `</head>`:
 
 **Problem:** Form submissions don't arrive
 
-**Solution:**
-1. Check `data-netlify="true"` is in the `<form>` tag
-2. Ensure `netlify.toml` is in root directory
-3. Make sure form has a unique `name` attribute
-4. Verify email notifications are enabled in Netlify dashboard
-5. Check spam folder
+**Solutions:**
+
+1. **Check the hidden HTML form in `index.html`:**
+   ```html
+   <form name="renovation-quote" netlify netlify-honeypot="bot-field" hidden>
+   ```
+   - Must have `netlify` attribute (or `data-netlify="true"`)
+   - Must have same `name` as React form
+   - Must be in the HTML at build time
+
+2. **Check the React form attributes:**
+   ```javascript
+   <form 
+     name="renovation-quote"  // Same name as HTML form
+     method="POST"
+     data-netlify="true"
+     data-netlify-honeypot="bot-field"
+   >
+     <input type="hidden" name="form-name" value="renovation-quote" />
+   ```
+
+3. **Verify form appears in Netlify:**
+   - After deploying, check Netlify Dashboard → Forms
+   - You should see "renovation-quote" listed
+   - If not, the hidden HTML form wasn't detected
+
+4. **Check `netlify.toml` is in root directory**
+
+5. **Verify email notifications are enabled**
+
+6. **Check spam folder**
+
+**Still not working?** 
+- Redeploy the site (sometimes needed after adding form)
+- Check Netlify's form detection is enabled (Settings → Forms)
+- Look for "Page Not Found" errors when submitting (means form isn't detected)
 
 ### Prices Showing as NaN or Undefined
 
