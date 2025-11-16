@@ -32,6 +32,7 @@ const DollarSign = () => (
 function RenovationWebsite() {
   const [step, setStep] = React.useState(-1);
   const [progress, setProgress] = React.useState(0);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [formData, setFormData] = React.useState({
     projectCategory: '',
     propertyType: '',
@@ -272,9 +273,35 @@ function RenovationWebsite() {
     }
   };
 
-  const handleContactSubmit = (e) => {
+  // FIXED: Proper form submission using fetch API
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
-    setStep(filteredQuestions.length + 1);
+    setIsSubmitting(true);
+    
+    const form = e.target;
+    const formDataToSubmit = new FormData(form);
+    
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSubmit).toString()
+      });
+      
+      if (response.ok) {
+        // Success - now show the success message
+        setStep(filteredQuestions.length + 1);
+      } else {
+        // Handle error
+        console.error('Form submission failed:', response.status);
+        alert('Une erreur s\'est produite. Veuillez réessayer.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Impossible de soumettre le formulaire. Vérifiez votre connexion internet.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (step === -1) {
@@ -496,6 +523,7 @@ function RenovationWebsite() {
               <form 
                 name="renovation-quote" 
                 method="POST" 
+                action="/"
                 data-netlify="true"
                 data-netlify-honeypot="bot-field"
                 onSubmit={handleContactSubmit}
@@ -568,9 +596,10 @@ function RenovationWebsite() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-5 rounded-2xl font-bold hover:from-blue-700 hover:to-blue-800 transition-all text-lg shadow-xl"
+                  disabled={isSubmitting}
+                  className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-5 rounded-2xl font-bold hover:from-blue-700 hover:to-blue-800 transition-all text-lg shadow-xl ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  Obtenir Mon Devis Détaillé →
+                  {isSubmitting ? 'Envoi en cours...' : 'Obtenir Mon Devis Détaillé →'}
                 </button>
               </form>
             </div>
