@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - RenovatePro</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        body {
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Background image with responsive opacity */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("dat-vo-F4u8Vm7UdgY-unsplash.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+            opacity: 1;
+        }
+
+        /* Reduce background opacity by 30% on screens below 1024px */
+        @media (max-width: 1024px) {
+            body::before {
+                background-image: url("maeva-vigier-3V4yhAv7nw4-unsplash.jpg");
+                background-position: 25% 80%;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="border-b border-neutral-200 bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-light tracking-tight text-neutral-900">
+                    <a href="index.html">RenovatePro</a>
+                </div>
+                <nav class="flex gap-2 lg:gap-8 text-sm">
+                    <a href="index.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Accueil</a>
+                    <a href="about-us.html" class="text-neutral-900 font-medium">À Propos</a>
+                    <a href="tips-and-tricks.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Astuces</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-20">
+        <!-- Hero Section -->
+        <div class="text-center space-y-6 mb-20">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tight text-neutral-900 leading-tight">
+                À Propos de RenovatePro
+            </h1>
+            <p class="text-xl text-neutral-800 max-w-2xl mx-auto font-light">
+                Votre partenaire de confiance pour tous vos projets de rénovation
+            </p>
+        </div>
+
+        <!-- Notre Mission -->
+        <section class="mb-16">
+            <div class="bg-white border border-neutral-200 p-12">
+                <h2 class="text-3xl font-light text-neutral-900 mb-6">Notre Mission</h2>
+                <p class="text-neutral-700 leading-relaxed mb-4">
+                    Chez RenovatePro, nous croyons que chaque projet de rénovation mérite une attention particulière et un accompagnement professionnel. Notre mission est de simplifier le processus de rénovation en vous offrant des estimations précises, transparentes et sans engagement.
+                </p>
+                <p class="text-neutral-700 leading-relaxed">
+                    Nous mettons notre expertise au service de vos projets, qu'il s'agisse d'une rénovation complète, d'une extension ou de travaux spécifiques. Notre objectif est de vous aider à concrétiser vos rêves tout en respectant votre budget et vos délais.
+                </p>
+            </div>
+        </section>
+
+        <!-- Nos Valeurs -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-light text-neutral-900 mb-8 text-center">Nos Valeurs</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white border border-neutral-200 p-8">
+                    <h3 class="text-xl font-normal text-neutral-900 mb-3">Transparence</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Des estimations claires et détaillées sans frais cachés. Vous savez exactement à quoi vous attendre dès le départ.
+                    </p>
+                </div>
+                <div class="bg-white border border-neutral-200 p-8">
+                    <h3 class="text-xl font-normal text-neutral-900 mb-3">Expertise</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Plus de 15 ans d'expérience dans le secteur de la rénovation. Notre équipe maîtrise tous les types de travaux.
+                    </p>
+                </div>
+                <div class="bg-white border border-neutral-200 p-8">
+                    <h3 class="text-xl font-normal text-neutral-900 mb-3">Qualité</h3>
+                    <p class="text-neutral-600 text-sm leading-relaxed">
+                        Nous travaillons uniquement avec des artisans qualifiés et des matériaux de première qualité pour garantir des résultats durables.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notre Équipe -->
+        <section class="mb-16">
+            <div class="bg-white border border-neutral-200 p-12">
+                <h2 class="text-3xl font-light text-neutral-900 mb-6">Notre Équipe</h2>
+                <p class="text-neutral-700 leading-relaxed mb-6">
+                    RenovatePro, c'est avant tout une équipe passionnée de professionnels dédiés à la réussite de vos projets. Nos experts en rénovation combinent savoir-faire technique, créativité et sens du service pour vous accompagner à chaque étape.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-normal text-neutral-900">Architectes & Designers</h3>
+                        <p class="text-neutral-600 text-sm leading-relaxed">
+                            Nos architectes et designers d'intérieur transforment vos idées en plans concrets et esthétiques.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-normal text-neutral-900">Artisans Qualifiés</h3>
+                        <p class="text-neutral-600 text-sm leading-relaxed">
+                            Un réseau d'artisans certifiés pour garantir une exécution impeccable de vos travaux.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-normal text-neutral-900">Chefs de Projet</h3>
+                        <p class="text-neutral-600 text-sm leading-relaxed">
+                            Des chefs de projet dédiés qui coordonnent tous les aspects de votre rénovation.
+                        </p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="text-lg font-normal text-neutral-900">Service Client</h3>
+                        <p class="text-neutral-600 text-sm leading-relaxed">
+                            Une équipe à votre écoute pour répondre à toutes vos questions et préoccupations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pourquoi Nous Choisir -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-light text-neutral-900 mb-8 text-center">Pourquoi Nous Choisir ?</h2>
+            <div class="bg-white border border-neutral-200">
+                <div class="divide-y divide-neutral-200">
+                    <div class="p-6 flex items-start gap-4">
+                        <div class="w-8 h-8 bg-neutral-900 text-white flex items-center justify-center flex-shrink-0 text-sm">
+                            1
+                        </div>
+                        <div>
+                            <h3 class="font-normal text-neutral-900 mb-2">Devis Gratuit en 2 Minutes</h3>
+                            <p class="text-neutral-600 text-sm">
+                                Obtenez une estimation précise de votre projet sans engagement et sans frais.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-start gap-4">
+                        <div class="w-8 h-8 bg-neutral-900 text-white flex items-center justify-center flex-shrink-0 text-sm">
+                            2
+                        </div>
+                        <div>
+                            <h3 class="font-normal text-neutral-900 mb-2">Accompagnement Personnalisé</h3>
+                            <p class="text-neutral-600 text-sm">
+                                Un chef de projet dédié vous guide du début à la fin de votre rénovation.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-start gap-4">
+                        <div class="w-8 h-8 bg-neutral-900 text-white flex items-center justify-center flex-shrink-0 text-sm">
+                            3
+                        </div>
+                        <div>
+                            <h3 class="font-normal text-neutral-900 mb-2">Garantie Qualité</h3>
+                            <p class="text-neutral-600 text-sm">
+                                Tous nos travaux sont garantis et réalisés selon les normes les plus strictes.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 flex items-start gap-4">
+                        <div class="w-8 h-8 bg-neutral-900 text-white flex items-center justify-center flex-shrink-0 text-sm">
+                            4
+                        </div>
+                        <div>
+                            <h3 class="font-normal text-neutral-900 mb-2">Respect des Délais</h3>
+                            <p class="text-neutral-600 text-sm">
+                                Nous nous engageons à respecter les délais convenus pour votre tranquillité d'esprit.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center">
+            <div class="bg-white border border-neutral-200 p-12">
+                <h2 class="text-3xl font-light text-neutral-900 mb-4">
+                    Prêt à Démarrer Votre Projet ?
+                </h2>
+                <p class="text-neutral-600 mb-8">
+                    Obtenez votre devis personnalisé en quelques minutes
+                </p>
+                <a
+                    href="index.html#hero"
+                    class="inline-flex items-center gap-2 bg-neutral-900 text-white px-8 py-4 text-lg font-normal hover:bg-neutral-800 transition-colors"
+                >
+                    Commencer
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200 bg-white mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-xl font-light text-neutral-900 mb-4">RenovatePro</div>
+                    <p class="text-neutral-600 text-sm">
+                        Votre partenaire de confiance pour tous vos projets de rénovation.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-normal text-neutral-900 mb-4">Navigation</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Accueil</a></li>
+                        <li><a href="about-us.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">À Propos</a></li>
+                        <li><a href="tips-and-tricks.html" class="text-neutral-600 hover:text-neutral-900 transition-colors">Trucs & Astuces</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-normal text-neutral-900 mb-4">Contact</h3>
+                    <p class="text-neutral-600 text-sm">
+                        contact@renovatepro.fr<br>
+                        01 23 45 67 89
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-neutral-200 mt-8 pt-8 text-center text-neutral-500 text-sm">
+                © 2025 RenovatePro. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

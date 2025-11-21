@@ -28,7 +28,6 @@ function RenovationWebsite() {
     renovationType: '',
     area: '',
     currentCondition: '',
-    desiredFinish: '',
     timeline: '',
     zipCode: '',
     name: '',
@@ -41,7 +40,7 @@ function RenovationWebsite() {
     let basePrice = 0;
     
     const propertyMultiplier = {
-      'house': 1.5, 'flat': 1.0, 'villa': 2.0, 'office': 1.3, 'commercial': 1.8
+      'house': 1.5, 'flat': 1.0, 'office': 1.3, 'commercial': 1.8
     };
     
     const renovationBase = {
@@ -55,10 +54,6 @@ function RenovationWebsite() {
       'excellent': 0.7, 'good': 0.9, 'average': 1.0, 'poor': 1.3, 'very-poor': 1.6
     };
     
-    const finishMultiplier = {
-      'basic': 0.8, 'standard': 1.0, 'premium': 1.4, 'luxury': 2.0
-    };
-    
     const ageMultiplier = {
       'new': 0.8, '0-10': 0.9, '10-30': 1.0, '30-50': 1.1, '50+': 1.3
     };
@@ -66,7 +61,6 @@ function RenovationWebsite() {
     basePrice = renovationBase[formData.renovationType] || 30000;
     basePrice *= propertyMultiplier[formData.propertyType] || 1;
     basePrice *= conditionMultiplier[formData.currentCondition] || 1;
-    basePrice *= finishMultiplier[formData.desiredFinish] || 1;
     basePrice *= ageMultiplier[formData.propertyAge] || 1;
     
     if (formData.area) {
@@ -78,7 +72,7 @@ function RenovationWebsite() {
     }
     
     if (formData.timeline === 'urgent') basePrice *= 1.2;
-    else if (formData.timeline === '1-3months') basePrice *= 1.1;
+    else if (formData.timeline === '1-3 mois') basePrice *= 1.1;
     
     return {
       low: Math.round(basePrice * 0.85),
@@ -104,7 +98,6 @@ function RenovationWebsite() {
       options: [
         { value: 'house', label: 'Maison' },
         { value: 'flat', label: 'Appartement' },
-        { value: 'villa', label: 'Villa' },
         { value: 'office', label: 'Bureau' }
       ]
     },
@@ -180,22 +173,12 @@ function RenovationWebsite() {
       ]
     },
     {
-      id: 'desiredFinish',
-      title: 'Niveau de qualité ?',
-      options: [
-        { value: 'basic', label: 'Basique' },
-        { value: 'standard', label: 'Standard' },
-        { value: 'premium', label: 'Premium' },
-        { value: 'luxury', label: 'Luxe' }
-      ]
-    },
-    {
       id: 'timeline',
       title: 'Quand commencer ?',
       options: [
         { value: 'urgent', label: 'Urgent' },
-        { value: '1-3months', label: '1-3 mois' },
-        { value: '3-6months', label: '3-6 mois' },
+        { value: '1-3 mois', label: '1-3 mois' },
+        { value: '3-6 mois', label: '3-6 mois' },
         { value: 'flexible', label: 'Flexible' }
       ]
     },
@@ -213,6 +196,14 @@ function RenovationWebsite() {
   const currentQuestion = filteredQuestions[step] || questions[step];
   const estimate = step >= filteredQuestions.length ? calculateEstimate() : null;
   const totalQuestions = filteredQuestions.length;
+
+  // Function to get French label from English value
+  const getFrenchLabel = (questionId, value) => {
+    if (!value) return '';
+    const question = questions.find(q => q.id === questionId && q.options);
+    const option = question?.options?.find(opt => opt.value === value);
+    return option?.label || value;
+  };
 
   const handleOptionClick = (value) => {
     setFormData({ ...formData, [currentQuestion.id]: value });
@@ -282,8 +273,15 @@ function RenovationWebsite() {
         {/* Simple Header */}
         <header className="border-b border-neutral-200 bg-white">
           <div className="max-w-6xl mx-auto px-6 py-6">
-            <div className="text-2xl font-light tracking-tight text-neutral-900">
-              <a href="/index.html">RenovatePro</a>
+            <div className="flex items-center justify-between">
+              <div className="text-2xl font-light tracking-tight text-neutral-900">
+                <a href="/index.html">RenovatePro</a>
+              </div>
+              <nav className="flex gap-2 lg:gap-8 text-sm">
+                <a href="index.html" className="text-neutral-900 font-medium">Accueil</a>
+                <a href="about-us.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">À Propos</a>
+                <a href="tips-and-tricks.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">Astuces</a>
+              </nav>
             </div>
           </div>
         </header>
@@ -295,7 +293,7 @@ function RenovationWebsite() {
               Obtenez votre devis<br />de rénovation
             </h1>
             
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto font-light">
+            <p className="text-xl text-neutral-800 max-w-2xl mx-auto font-light">
               Répondez à quelques questions simples et recevez une estimation détaillée en 2 minutes
             </p>
 
@@ -308,7 +306,7 @@ function RenovationWebsite() {
             </button>
 
             {/* Simple Benefits */}
-            <div className="flex flex-wrap justify-center gap-8 pt-12 text-sm text-neutral-600">
+            <div className="flex flex-wrap justify-center gap-8 pt-12 text-sm text-neutral-800">
               <div className="flex items-center gap-2">
                 <Check />
                 <span>Gratuit</span>
@@ -335,8 +333,14 @@ function RenovationWebsite() {
       <header className="border-b border-neutral-200 bg-white sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center justify-between py-6">
-            <div className="text-xl font-light text-neutral-900">
-              <a href="/index.html">RenovatePro</a>
+            <div className="flex items-center gap-8">
+              <div className="text-xl font-light text-neutral-900">
+                <a href="/index.html">RenovatePro</a>
+              </div>
+              <nav className="hidden md:flex gap-8 text-sm">
+                <a href="about-us.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">À Propos</a>
+                <a href="tips-and-tricks.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">Astuces</a>
+              </nav>
             </div>
             {step < totalQuestions && (
               <div className="text-sm text-neutral-500">
@@ -446,17 +450,16 @@ function RenovationWebsite() {
               <h3 className="text-lg font-normal text-neutral-900 mb-6">Résumé</h3>
               <div className="bg-white border border-neutral-200 divide-y divide-neutral-200">
                 {[
-                  { label: 'Projet', value: formData.projectCategory?.replace('-', ' ') },
-                  { label: 'Bien', value: formData.propertyType },
-                  { label: 'Travaux', value: formData.renovationType?.replace('-', ' ') },
+                  { label: 'Projet', value: getFrenchLabel('projectCategory', formData.projectCategory) },
+                  { label: 'Bien', value: getFrenchLabel('propertyType', formData.propertyType) },
+                  { label: 'Travaux', value: getFrenchLabel('renovationType', formData.renovationType) },
                   { label: 'Surface', value: formData.area ? `${formData.area} m²` : '' },
-                  { label: 'État', value: formData.currentCondition },
-                  { label: 'Finition', value: formData.desiredFinish },
-                  { label: 'Délai', value: formData.timeline?.replace('-', ' ') }
+                  { label: 'État', value: getFrenchLabel('currentCondition', formData.currentCondition) },
+                  { label: 'Délai', value: getFrenchLabel('timeline', formData.timeline) }
                 ].filter(item => item.value).map((item, i) => (
                   <div key={i} className="flex justify-between px-6 py-3 text-sm">
                     <span className="text-neutral-500">{item.label}</span>
-                    <span className="text-neutral-900 capitalize">{item.value}</span>
+                    <span className="text-neutral-900">{item.value}</span>
                   </div>
                 ))}
               </div>
@@ -486,7 +489,6 @@ function RenovationWebsite() {
                 <input type="hidden" name="renovationType" value={formData.renovationType} />
                 <input type="hidden" name="area" value={formData.area} />
                 <input type="hidden" name="currentCondition" value={formData.currentCondition} />
-                <input type="hidden" name="desiredFinish" value={formData.desiredFinish} />
                 <input type="hidden" name="timeline" value={formData.timeline} />
                 <input type="hidden" name="zipCode" value={formData.zipCode} />
                 <input type="hidden" name="estimate" value={`€${estimate.low.toLocaleString()} - €${estimate.high.toLocaleString()}`} />
@@ -568,7 +570,7 @@ function RenovationWebsite() {
                 setProgress(0);
                 setFormData({
                   projectCategory: '', propertyType: '', propertyAge: '', renovationType: '',
-                  area: '', currentCondition: '', desiredFinish: '', timeline: '', zipCode: '',
+                  area: '', currentCondition: '', timeline: '', zipCode: '',
                   name: '', email: '', phone: '', projectDescription: ''
                 });
               }}
