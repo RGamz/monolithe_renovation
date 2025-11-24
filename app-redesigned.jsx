@@ -273,9 +273,10 @@ function RenovationWebsite() {
         {/* Simple Header */}
         <header className="border-b border-neutral-200 bg-white">
           <div className="max-w-6xl mx-auto px-6 py-6">
-            <div className="flex items-center justify-between">
-              <div className="text-2xl font-light tracking-tight text-neutral-900">
-                <a href="/index.html">RenovatePro</a>
+            <div className="flex items-end justify-between">
+              <div className="text-2xl font-light tracking-tight text-neutral-900 flex items-end">
+                <img src="./logo.png" alt="RenovatePro logo" style={{ height: '40px', paddingBottom: '3px' }} />
+                <a href="/index.html">Monolithe</a>
               </div>
               <nav className="flex gap-2 lg:gap-8 text-sm">
                 <a href="index.html" className="text-neutral-900 font-medium">Accueil</a>
