@@ -1,18 +1,18 @@
-// Simple SVG Icons - Minimal Design
+// Simple SVG Icons
 const ArrowRight = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
   </svg>
 );
 
 const ArrowLeft = () => (
-  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 17l-5-5m0 0l5-5m-5 5h12" />
   </svg>
 );
 
 const Check = () => (
-  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
   </svg>
 );
@@ -269,45 +269,43 @@ function RenovationWebsite() {
   // Landing Page
   if (step === -1) {
     return (
-      <div className="min-h-screen">
-        {/* Simple Header */}
-        <header className="border-b border-neutral-200 bg-white">
-          <div className="max-w-6xl mx-auto px-6 py-6">
-            <div className="flex items-end justify-between">
-              <div className="text-2xl font-light tracking-tight text-neutral-900 flex items-end">
-                <img src="./logo.png" alt="RenovatePro logo" style={{ height: '40px', paddingBottom: '3px' }} />
-                <a href="/index.html">Monolithe</a>
-              </div>
-              <nav className="flex gap-2 lg:gap-8 text-sm">
-                <a href="index.html" className="text-neutral-900 font-medium">Accueil</a>
-                <a href="about-us.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">À Propos</a>
-                <a href="tips-and-tricks.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">Astuces</a>
-              </nav>
+      <div>
+        {/* Header */}
+        <header className="header">
+          <div className="container header-inner">
+            <div className="logo">
+              <img src="./logo.png" alt="Monolithe logo" />
+              <a href="/index.html">Monolithe</a>
             </div>
+            <nav className="nav">
+              <a href="index.html" className="nav-link nav-link-active">Accueil</a>
+              <a href="about-us.html" className="nav-link">À Propos</a>
+              <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
+            </nav>
           </div>
         </header>
 
-        {/* Hero Section - Clean & Minimal */}
-        <main className="max-w-4xl mx-auto px-6 py-20" id="hero">
+        {/* Hero Section */}
+        <main className="container container-md section-hero" id="hero">
           <div className="text-center space-y-8">
-            <h1 className="text-5xl md:text-6xl font-light tracking-tight text-neutral-900 leading-tight">
+            <h1 className="heading-hero">
               Obtenez votre devis<br />de rénovation
             </h1>
             
-            <p className="text-xl text-neutral-800 max-w-2xl mx-auto font-light">
+            <p className="text-large">
               Répondez à quelques questions simples et recevez une estimation détaillée en 2 minutes
             </p>
 
             <button
               onClick={() => { setStep(0); setProgress(10); }}
-              className="inline-flex items-center gap-2 bg-neutral-900 text-white px-8 py-4 text-lg font-normal hover:bg-neutral-800 transition-colors"
+              className="btn btn-primary btn-lg"
             >
               Commencer
               <ArrowRight />
             </button>
 
-            {/* Simple Benefits */}
-            <div className="flex flex-wrap justify-center gap-8 pt-12 text-sm text-neutral-800">
+            {/* Benefits */}
+            <div className="check-list check-list-inline pt-12">
               <div className="flex items-center gap-2">
                 <Check />
                 <span>Gratuit</span>
@@ -329,43 +327,43 @@ function RenovationWebsite() {
 
   // Questionnaire & Results
   return (
-    <div className="min-h-screen">
-      {/* Minimal Header with Progress */}
-      <header className="border-b border-neutral-200 bg-white sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="flex items-center justify-between py-6">
+    <div>
+      {/* Header with Progress */}
+      <header className="header header-sticky">
+        <div className="container container-md">
+          <div className="header-inner">
             <div className="flex items-center gap-8">
-              <div className="text-xl font-light text-neutral-900">
-                <a href="/index.html">RenovatePro</a>
+              <div className="logo">
+                <a href="/index.html">Monolithe</a>
               </div>
-              <nav className="hidden md:flex gap-8 text-sm">
-                <a href="about-us.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">À Propos</a>
-                <a href="tips-and-tricks.html" className="text-neutral-600 hover:text-neutral-900 transition-colors">Astuces</a>
+              <nav className="nav hidden-mobile">
+                <a href="about-us.html" className="nav-link">À Propos</a>
+                <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
               </nav>
             </div>
             {step < totalQuestions && (
-              <div className="text-sm text-neutral-500">
+              <div className="text-small text-muted">
                 {step + 1} / {totalQuestions}
               </div>
             )}
           </div>
-          {/* Clean Progress Bar */}
-          <div className="h-px bg-neutral-200">
+          {/* Progress Bar */}
+          <div className="progress-container">
             <div 
-              className="h-full bg-neutral-900 transition-all duration-300"
+              className="progress-bar"
               style={{ width: `${progress}%` }}
             />
           </div>
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-6 py-16">
+      <main className="container container-sm section-content">
         {/* Questions */}
         {step >= 0 && step < totalQuestions && currentQuestion && (
           <div className="space-y-12 animate-fade-in">
             {/* Question Title */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-light text-neutral-900 leading-tight">
+              <h2 className="heading-hero">
                 {currentQuestion.title}
               </h2>
             </div>
@@ -373,43 +371,36 @@ function RenovationWebsite() {
             {/* Input Type */}
             {currentQuestion.type === 'input' ? (
               <form onSubmit={handleInputSubmit} className="space-y-6">
-                <div className="relative">
+                <div className="form-input-wrapper">
                   <input
                     type={currentQuestion.inputType}
                     placeholder={currentQuestion.placeholder}
                     maxLength={currentQuestion.maxLength}
-                    className="w-full px-6 py-4 text-lg border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors bg-white"
+                    className="form-input form-input-lg"
                     required
                     autoFocus
                   />
                   {currentQuestion.suffix && (
-                    <span className="absolute right-6 top-1/2 transform -translate-y-1/2 text-neutral-400">
+                    <span className="form-input-suffix">
                       {currentQuestion.suffix}
                     </span>
                   )}
                 </div>
-                <button
-                  type="submit"
-                  className="inline-flex items-center gap-2 bg-neutral-900 text-white px-6 py-3 hover:bg-neutral-800 transition-colors"
-                >
+                <button type="submit" className="btn btn-primary">
                   Continuer
                   <ArrowRight />
                 </button>
               </form>
             ) : (
               /* Multiple Choice */
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="option-grid">
                 {currentQuestion.options?.map((option) => (
                   <button
                     key={option.value}
                     onClick={() => handleOptionClick(option.value)}
-                    className={`text-left px-6 py-4 border transition-all ${
-                      formData[currentQuestion.id] === option.value
-                        ? 'border-neutral-900 bg-neutral-900 text-white'
-                        : 'border-neutral-300 hover:border-neutral-900 bg-white'
-                    }`}
+                    className={`option-btn ${formData[currentQuestion.id] === option.value ? 'option-btn-selected' : ''}`}
                   >
-                    <div className="text-base">{option.label}</div>
+                    {option.label}
                   </button>
                 ))}
               </div>
@@ -417,10 +408,7 @@ function RenovationWebsite() {
 
             {/* Back Button */}
             {step > 0 && (
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 text-neutral-600 hover:text-neutral-900 transition-colors"
-              >
+              <button onClick={handleBack} className="btn btn-text">
                 <ArrowLeft />
                 Retour
               </button>
@@ -432,24 +420,22 @@ function RenovationWebsite() {
         {step === totalQuestions && estimate && (
           <div className="space-y-12 animate-fade-in">
             {/* Estimate Card */}
-            <div className="bg-white border border-neutral-200 p-12">
-              <div className="text-center space-y-8">
-                <div>
-                  <div className="text-sm text-neutral-500 mb-2">Estimation de votre projet</div>
-                  <div className="text-5xl font-light text-neutral-900">
-                    {estimate.low.toLocaleString()} - {estimate.high.toLocaleString()} €
-                  </div>
-                  <div className="text-neutral-500 mt-2">
-                    Moyenne : {estimate.average.toLocaleString()} €
-                  </div>
+            <div className="card card-padded-lg">
+              <div className="estimate-display">
+                <div className="estimate-label">Estimation de votre projet</div>
+                <div className="estimate-value">
+                  {estimate.low.toLocaleString()} - {estimate.high.toLocaleString()} €
+                </div>
+                <div className="estimate-average">
+                  Moyenne : {estimate.average.toLocaleString()} €
                 </div>
               </div>
             </div>
 
             {/* Summary */}
-            <div className="space-y-3">
-              <h3 className="text-lg font-normal text-neutral-900 mb-6">Résumé</h3>
-              <div className="bg-white border border-neutral-200 divide-y divide-neutral-200">
+            <div>
+              <h3 className="heading-small mb-6">Résumé</h3>
+              <div className="summary-table">
                 {[
                   { label: 'Projet', value: getFrenchLabel('projectCategory', formData.projectCategory) },
                   { label: 'Bien', value: getFrenchLabel('propertyType', formData.propertyType) },
@@ -458,17 +444,17 @@ function RenovationWebsite() {
                   { label: 'État', value: getFrenchLabel('currentCondition', formData.currentCondition) },
                   { label: 'Délai', value: getFrenchLabel('timeline', formData.timeline) }
                 ].filter(item => item.value).map((item, i) => (
-                  <div key={i} className="flex justify-between px-6 py-3 text-sm">
-                    <span className="text-neutral-500">{item.label}</span>
-                    <span className="text-neutral-900">{item.value}</span>
+                  <div key={i} className="summary-row">
+                    <span className="summary-label">{item.label}</span>
+                    <span className="summary-value">{item.value}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="bg-white border border-neutral-200 p-8">
-              <h3 className="text-2xl font-light text-neutral-900 mb-6">
+            <div className="card card-padded">
+              <h3 className="heading-card mb-6">
                 Recevez votre devis détaillé
               </h3>
               
@@ -495,47 +481,47 @@ function RenovationWebsite() {
                 <input type="hidden" name="estimate" value={`€${estimate.low.toLocaleString()} - €${estimate.high.toLocaleString()}`} />
                 
                 {/* Honeypot */}
-                <p style={{display: 'none'}}>
+                <p className="hidden">
                   <label>Ne pas remplir : <input name="bot-field" /></label>
                 </p>
                 
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm text-neutral-600 mb-2">Nom</label>
+                <div className="grid-2">
+                  <div className="form-group">
+                    <label className="form-label">Nom</label>
                     <input
                       type="text"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors"
+                      className="form-input"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm text-neutral-600 mb-2">Téléphone</label>
+                  <div className="form-group">
+                    <label className="form-label">Téléphone</label>
                     <input
                       type="tel"
                       name="phone"
                       required
-                      className="w-full px-4 py-3 border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors"
+                      className="form-input"
                     />
                   </div>
                 </div>
                 
-                <div>
-                  <label className="block text-sm text-neutral-600 mb-2">Email</label>
+                <div className="form-group">
+                  <label className="form-label">Email</label>
                   <input
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors"
+                    className="form-input"
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm text-neutral-600 mb-2">Message (optionnel)</label>
+                <div className="form-group">
+                  <label className="form-label">Message (optionnel)</label>
                   <textarea
                     name="projectDescription"
                     rows="3"
-                    className="w-full px-4 py-3 border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors resize-none"
+                    className="form-input form-textarea"
                     placeholder="Précisions sur votre projet..."
                   />
                 </div>
@@ -543,7 +529,7 @@ function RenovationWebsite() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full bg-neutral-900 text-white px-6 py-4 hover:bg-neutral-800 transition-colors ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  className="btn btn-primary btn-full"
                 >
                   {isSubmitting ? 'Envoi...' : 'Recevoir mon devis'}
                 </button>
@@ -554,13 +540,13 @@ function RenovationWebsite() {
 
         {/* Success Screen */}
         {step === totalQuestions + 1 && (
-          <div className="text-center space-y-8 animate-fade-in">
-            <div className="bg-white border border-neutral-200 p-16">
-              <div className="w-16 h-16 bg-neutral-900 text-white flex items-center justify-center mx-auto mb-6">
+          <div className="text-center animate-fade-in">
+            <div className="card card-padded-lg">
+              <div className="success-icon">
                 <Check />
               </div>
-              <h2 className="text-3xl font-light text-neutral-900 mb-4">Demande envoyée</h2>
-              <p className="text-neutral-600">
+              <h2 className="heading-section mb-4">Demande envoyée</h2>
+              <p className="text-body">
                 Notre équipe vous contactera dans les 24 heures
               </p>
             </div>
@@ -575,21 +561,13 @@ function RenovationWebsite() {
                   name: '', email: '', phone: '', projectDescription: ''
                 });
               }}
-              className="text-neutral-600 hover:text-neutral-900 transition-colors"
+              className="btn btn-text mt-8"
             >
               Nouvelle demande
             </button>
           </div>
         )}
       </main>
-
-      <style>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in { animation: fade-in 0.3s ease-out; }
-      `}</style>
     </div>
   );
 }
