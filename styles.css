@@ -818,3 +818,11 @@ input, textarea {
 .animate-fade-in {
   animation: fade-in var(--transition-slow) ease-out;
 }
+
+
+.checkbox-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}

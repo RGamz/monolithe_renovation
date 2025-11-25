@@ -21,6 +21,7 @@ function RenovationWebsite() {
   const [step, setStep] = React.useState(-1);
   const [progress, setProgress] = React.useState(0);
   const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [consentAccepted, setConsentAccepted] = React.useState(false);
   const [formData, setFormData] = React.useState({
     projectCategory: '',
     propertyType: '',
@@ -526,9 +527,27 @@ function RenovationWebsite() {
                   />
                 </div>
 
+                <div className="form-group">
+                  <label className="checkbox-label">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={consentAccepted}
+                      onChange={(e) => setConsentAccepted(e.target.checked)}
+                      className="checkbox-input"
+                    />
+                    <span className="checkbox-text">
+                      J'accepte que mes données personnelles soient traitées par Monolithe dans le cadre de ma demande de devis et j'ai pris connaissance des{' '}
+                      <a href="mentions-legales.html" target="_blank" rel="noopener noreferrer" className="text-link">
+                        mentions légales
+                      </a>.
+                    </span>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !consentAccepted}
                   className="btn btn-primary btn-full"
                 >
                   {isSubmitting ? 'Envoi...' : 'Recevoir mon devis'}
