@@ -458,7 +458,7 @@ input, textarea {
    Progress Bar
    ------------------------- */
 .progress-container {
-  height: 1px;
+  height: 2px;
   background-color: var(--color-border);
 }
 

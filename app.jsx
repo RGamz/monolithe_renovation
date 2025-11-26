@@ -91,7 +91,7 @@ function RenovationWebsite() {
     };
     
     const ageMultiplier = {
-      'new': 0.8, '0-10': 0.9, '10-30': 1.0, '30-50': 1.1, '50+': 1.3
+      '0-10': 0.9, '10-30': 1.0, '30+': 1.1
     };
     
     basePrice = renovationBase[formData.renovationType] || 30000;
@@ -141,11 +141,9 @@ function RenovationWebsite() {
       id: 'propertyAge',
       title: 'Âge de la propriété ?',
       options: [
-        { value: 'new', label: 'Moins de 5 ans' },
-        { value: '0-10', label: '5-10 ans' },
+        { value: '0-10', label: 'Moins de 10 ans' },
         { value: '10-30', label: '10-30 ans' },
-        { value: '30-50', label: '30-50 ans' },
-        { value: '50+', label: 'Plus de 50 ans' }
+        { value: '30+', label: 'Plus de 30 ans' }
       ]
     },
     {
@@ -477,6 +475,7 @@ function RenovationWebsite() {
                 {[
                   { label: 'Projet', value: getFrenchLabel('projectCategory', formData.projectCategory) },
                   { label: 'Bien', value: getFrenchLabel('propertyType', formData.propertyType) },
+                  { label: 'Âge', value: getFrenchLabel('propertyAge', formData.propertyAge) },
                   { label: 'Travaux', value: getFrenchLabel('renovationType', formData.renovationType) },
                   { label: 'Surface', value: formData.area ? `${formData.area} m²` : '' },
                   { label: 'État', value: getFrenchLabel('currentCondition', formData.currentCondition) },
