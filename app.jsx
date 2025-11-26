@@ -34,6 +34,7 @@ const Footer = () => (
             <li><a href="index.html" className="footer-link">Accueil</a></li>
             <li><a href="about-us.html" className="footer-link">À Propos</a></li>
             <li><a href="tips-and-tricks.html" className="footer-link">Astuces</a></li>
+            <li><a href="contact-us.html" className="footer-link">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -315,6 +316,7 @@ function RenovationWebsite() {
               <a href="index.html" className="nav-link nav-link-active">Accueil</a>
               <a href="about-us.html" className="nav-link">À Propos</a>
               <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
+              <a href="contact-us.html" className="nav-link">Contact</a>
             </nav>
           </div>
         </header>
@@ -376,6 +378,7 @@ function RenovationWebsite() {
               <nav className="nav hidden-mobile">
                 <a href="about-us.html" className="nav-link">À Propos</a>
                 <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
+                <a href="contact-us.html" className="nav-link">Contact</a>
               </nav>
             </div>
             {step < totalQuestions && (
