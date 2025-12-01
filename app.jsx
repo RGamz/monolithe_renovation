@@ -17,6 +17,12 @@ const Check = () => (
   </svg>
 );
 
+const CalendarIcon = () => (
+  <svg className="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>
+);
+
 // Footer Component
 const Footer = () => (
   <footer className="footer">
@@ -204,7 +210,7 @@ function RenovationWebsite() {
 
   const filteredQuestions = questions.filter(q => !q.condition || q.condition(formData));
   const currentQuestion = filteredQuestions[step] || questions[step];
-  const estimate = step >= filteredQuestions.length ? calculateEstimate() : null;
+  const estimate = calculateEstimate();
   const totalQuestions = filteredQuestions.length;
 
   // Function to get French label from English value
@@ -435,48 +441,16 @@ function RenovationWebsite() {
           </div>
         )}
 
-        {/* Estimate Screen */}
-        {step === totalQuestions && estimate && (
+        {/* Contact Form Screen (after questions, before showing estimate) */}
+        {step === totalQuestions && (
           <div className="space-y-12 animate-fade-in">
-            {/* Estimate Card */}
-            <div className="card card-padded-lg">
-              <div className="estimate-display">
-                <div className="estimate-label">Estimation de votre projet</div>
-                <div className="estimate-value">
-                  {estimate.low.toLocaleString()} - {estimate.high.toLocaleString()} €
-                </div>
-                <div className="estimate-average">
-                  Moyenne : {estimate.average.toLocaleString()} €
-                </div>
-              </div>
-            </div>
-
-            {/* Summary */}
-            <div>
-              <h3 className="heading-small mb-6">Résumé</h3>
-              <div className="summary-table">
-                {[
-                  { label: 'Projet', value: getFrenchLabel('projectCategory', formData.projectCategory) },
-                  { label: 'Bien', value: getFrenchLabel('propertyType', formData.propertyType) },
-                  { label: 'Âge', value: getFrenchLabel('propertyAge', formData.propertyAge) },
-                  { label: 'Travaux', value: getFrenchLabel('renovationType', formData.renovationType) },
-                  { label: 'Surface', value: formData.area ? `${formData.area} m²` : '' },
-                  { label: 'État', value: getFrenchLabel('currentCondition', formData.currentCondition) },
-                  { label: 'Délai', value: getFrenchLabel('timeline', formData.timeline) }
-                ].filter(item => item.value).map((item, i) => (
-                  <div key={i} className="summary-row">
-                    <span className="summary-label">{item.label}</span>
-                    <span className="summary-value">{item.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Form */}
             <div className="card card-padded">
               <h3 className="heading-card mb-6">
-                Recevez votre devis détaillé
+                Vos coordonnées
               </h3>
+              <p className="text-body mb-6">
+                Renseignez vos informations pour découvrir votre estimation personnalisée
+              </p>
               
               <form 
                 name="renovation-quote" 
@@ -569,40 +543,91 @@ function RenovationWebsite() {
                   disabled={isSubmitting || !consentAccepted}
                   className="btn btn-primary btn-full"
                 >
-                  {isSubmitting ? 'Envoi...' : 'Recevoir mon devis'}
+                  {isSubmitting ? 'Envoi...' : 'Voir mon estimation'}
                 </button>
               </form>
             </div>
+
+            {/* Back Button */}
+            <button onClick={handleBack} className="btn btn-text">
+              <ArrowLeft />
+              Retour
+            </button>
           </div>
         )}
 
-        {/* Success Screen */}
+        {/* Estimate Screen (after form submission) */}
         {step === totalQuestions + 1 && (
-          <div className="text-center animate-fade-in">
-            <div className="card card-padded-lg">
+          <div className="space-y-12 animate-fade-in">
+            {/* Success Message */}
+            <div className="text-center">
               <div className="success-icon">
                 <Check />
               </div>
-              <h2 className="heading-section mb-4">Demande envoyée</h2>
               <p className="text-body">
-                Notre équipe vous contactera dans les 24 heures
+                Votre demande a été envoyée avec succès
               </p>
             </div>
-            
-            <button
-              onClick={() => {
-                setStep(-1);
-                setProgress(0);
-                setFormData({
-                  projectCategory: '', propertyType: '', propertyAge: '', renovationType: '',
-                  area: '', currentCondition: '', timeline: '', zipCode: '',
-                  name: '', email: '', phone: '', projectDescription: ''
-                });
-              }}
-              className="btn btn-text mt-8"
-            >
-              Nouvelle demande
-            </button>
+
+            {/* Estimate Card */}
+            <div className="card card-padded-lg">
+              <div className="estimate-display">
+                <div className="estimate-label">Estimation de votre projet</div>
+                <div className="estimate-value">
+                  {estimate.low.toLocaleString()} - {estimate.high.toLocaleString()} €
+                </div>
+                <div className="estimate-average">
+                  Moyenne : {estimate.average.toLocaleString()} €
+                </div>
+              </div>
+            </div>
+
+            {/* Summary */}
+            <div>
+              <h3 className="heading-small mb-6">Résumé</h3>
+              <div className="summary-table">
+                {[
+                  { label: 'Projet', value: getFrenchLabel('projectCategory', formData.projectCategory) },
+                  { label: 'Bien', value: getFrenchLabel('propertyType', formData.propertyType) },
+                  { label: 'Âge', value: getFrenchLabel('propertyAge', formData.propertyAge) },
+                  { label: 'Travaux', value: getFrenchLabel('renovationType', formData.renovationType) },
+                  { label: 'Surface', value: formData.area ? `${formData.area} m²` : '' },
+                  { label: 'État', value: getFrenchLabel('currentCondition', formData.currentCondition) },
+                  { label: 'Délai', value: getFrenchLabel('timeline', formData.timeline) }
+                ].filter(item => item.value).map((item, i) => (
+                  <div key={i} className="summary-row">
+                    <span className="summary-label">{item.label}</span>
+                    <span className="summary-value">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Call to Action - Calendly */}
+            <div className="card card-padded text-center">
+              <h3 className="heading-card mb-4">
+                Envie d'en discuter ?
+              </h3>
+              <p className="text-body mb-6">
+                Planifiez un appel gratuit avec un expert pour affiner votre projet
+              </p>
+              <a 
+                href="https://calendly.com/YOUR_CALENDLY_LINK" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                <CalendarIcon />
+                Planifier un appel
+              </a>
+            </div>
+
+            {/* Return Home Button */}
+            <div className="text-center">
+              <a href="index.html" className="btn btn-text">
+                Retour à l'accueil
+              </a>
+            </div>
           </div>
         )}
       </main>
