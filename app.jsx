@@ -21,31 +21,6 @@ const Check = () => (
 const Footer = () => (
   <footer className="footer">
     <div className="container footer-inner">
-      <div className="footer-grid">
-        <div>
-          <div className="footer-title">Monolithe</div>
-          <p className="footer-text">
-            Votre partenaire de confiance pour tous vos projets de rénovation.
-          </p>
-        </div>
-        <div>
-          <h3 className="footer-heading">Navigation</h3>
-          <ul className="footer-links">
-            <li><a href="index.html" className="footer-link">Accueil</a></li>
-            <li><a href="about-us.html" className="footer-link">À Propos</a></li>
-            <li><a href="tips-and-tricks.html" className="footer-link">Astuces</a></li>
-            <li><a href="contact-us.html" className="footer-link">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="footer-heading">Contact</h3>
-          <p className="footer-text">
-            <a href="mailto:gestion.monolithe@gmail.com">gestion.monolithe@gmail.com</a>
-            <br />
-            01 23 45 67 89
-          </p>
-        </div>
-      </div>
       <div className="footer-bottom">
         © 2025 Monolithe. Tous droits réservés. | <a href="mentions-legales.html" style={{color: 'inherit', textDecoration: 'underline'}}>Mentions légales</a>
       </div>
