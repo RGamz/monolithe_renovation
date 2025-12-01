@@ -321,7 +321,7 @@ function RenovationWebsite() {
               <ArrowRight />
             </button>
 
-            <p className="text-small mt-2">
+            <p className="text-small mt-2 text-more-visible">
               *Vos coordonnées seront demandées pour recevoir votre devis détaillé
             </p>
 
@@ -582,6 +582,26 @@ function RenovationWebsite() {
               </div>
             </div>
 
+            
+            {/* Call to Action - Calendly */}
+            <div className="card card-padded text-center">
+              <h3 className="heading-card mb-4">
+                Envie d'en discuter ?
+              </h3>
+              <p className="text-body mb-6">
+                Planifiez un appel gratuit avec un expert pour affiner votre projet
+              </p>
+              <a 
+                href="https://calendly.com/YOUR_CALENDLY_LINK" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                <CalendarIcon />
+                Planifier un appel
+              </a>
+            </div>
+
             {/* Summary */}
             <div>
               <h3 className="heading-small mb-6">Résumé</h3>
@@ -601,25 +621,6 @@ function RenovationWebsite() {
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Call to Action - Calendly */}
-            <div className="card card-padded text-center">
-              <h3 className="heading-card mb-4">
-                Envie d'en discuter ?
-              </h3>
-              <p className="text-body mb-6">
-                Planifiez un appel gratuit avec un expert pour affiner votre projet
-              </p>
-              <a 
-                href="https://calendly.com/YOUR_CALENDLY_LINK" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-primary btn-lg"
-              >
-                <CalendarIcon />
-                Planifier un appel
-              </a>
             </div>
 
             {/* Return Home Button */}
