@@ -304,7 +304,7 @@ function RenovationWebsite() {
             </h1>
 
             <p className="text-large">
-              Répondez à quelques questions simples et recevez une estimation détaillée en 2 minutes
+              Répondez à quelques questions simples et recevez* une estimation détaillée en 2 minutes
             </p>
 
             <button
@@ -315,8 +315,12 @@ function RenovationWebsite() {
               <ArrowRight />
             </button>
 
+            <p className="text-small mt-2">
+              *Vos coordonnées seront demandées pour recevoir votre devis détaillé
+            </p>
+
             {/* Benefits */}
-            <div className="check-list check-list-inline pt-12">
+            <div className="check-list check-list-inline pt-8">
               <div className="flex items-center gap-2">
                 <Check />
                 <span>Gratuit</span>
