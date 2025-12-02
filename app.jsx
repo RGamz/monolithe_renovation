@@ -322,7 +322,7 @@ function RenovationWebsite() {
             </button>
 
             <p className="text-small mt-2 text-more-visible">
-              *Vos coordonnées seront demandées pour recevoir votre devis détaillé
+              *Vos coordonnées seront demandées pour recevoir votre devis estimatif
             </p>
 
             {/* Benefits */}
