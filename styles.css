@@ -67,8 +67,8 @@
   --transition-slow: 300ms ease;
 
   /* Background Images */
-  --bg-image-desktop: url("dat-vo-F4u8Vm7UdgY-unsplash.jpg");
-  --bg-image-mobile: url("dat-vo-F4u8Vm7UdgY-unsplash-small.png");
+  --bg-image-desktop: url("./images/dat-vo-F4u8Vm7UdgY-unsplash.webp");
+  --bg-image-mobile: url("./images/dat-vo-F4u8Vm7UdgY-unsplash-small.png");
   --bg-position-desktop: center;
   --bg-position-mobile: 0% 80%;
 }
@@ -314,10 +314,6 @@ main {
 .text-small {
   font-size: var(--text-sm);
   color: var(--color-text-light);
-}
-
-.text-more-visible {
-  text-shadow: 0 0px 1px rgb(0 0 0);
 }
 
 .text-muted {
@@ -864,4 +860,58 @@ main {
 
 .social-link:hover {
   background-color: #262626;
+}
+
+
+/* -------------------------
+   Team Cards
+   ------------------------- */
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-photo-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: var(--spacing-6);
+  border: 3px solid var(--color-border);
+}
+
+.team-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder style when no image is available */
+.team-photo-wrapper:empty,
+.team-photo[src=""],
+.team-photo:not([src]) {
+  background-color: var(--color-background-subtle);
+}
+
+.team-social {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.team-linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #0A66C2;
+  color: var(--color-white);
+  border-radius: 50%;
+  transition: background-color var(--transition-normal);
+}
+
+.team-linkedin:hover {
+  background-color: #004182;
 }

@@ -290,7 +290,7 @@ function RenovationWebsite() {
         <header className="header">
           <div className="container header-inner">
             <div className="logo">
-              <img src="./logo.png" alt="Monolithe logo" />
+              <img src="./images/logo.png" alt="Monolithe logo" />
               <a href="/index.html">Monolithe</a>
             </div>
             <nav className="nav">
@@ -321,7 +321,7 @@ function RenovationWebsite() {
               <ArrowRight />
             </button>
 
-            <p className="text-small mt-2 text-more-visible">
+            <p className="text-small mt-2">
               *Vos coordonnées seront demandées pour recevoir votre devis estimatif
             </p>
 
