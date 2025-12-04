@@ -324,6 +324,10 @@ main {
   text-align: center;
 }
 
+.text-aligned-both-sides {
+  text-align: justify;
+  text-align-last: left;
+}
 
 /* -------------------------
    Buttons
