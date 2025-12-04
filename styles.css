@@ -367,12 +367,15 @@ main {
 }
 
 .btn-text {
-  color: var(--color-secondary);
+  color: var(--color-primary);
   padding: var(--spacing-2);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
 }
 
 .btn-text:hover {
-  color: var(--color-primary);
+  background-color: var(--color-background-subtle);
+  border-color: var(--color-primary);
 }
 
 

@@ -357,7 +357,7 @@ function RenovationWebsite() {
           <div className="header-inner">
             <div className="flex items-center gap-8">
               <div className="logo">
-                <img src="./logo.png" alt="Monolithe logo" />
+                <img src="./images/logo.png" alt="Monolithe logo" />
                 <a href="/index.html">Monolithe</a>
               </div>
               <nav className="nav hidden-mobile">
