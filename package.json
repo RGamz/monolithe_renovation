@@ -1,0 +1,16 @@
+{
+  "name": "monolithe-renovation",
+  "version": "1.0.0",
+  "description": "Monolithe Renovation - Static site built with 11ty",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "keywords": ["renovation", "11ty", "static-site"],
+  "author": "Monolithe",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

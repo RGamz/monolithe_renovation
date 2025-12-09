@@ -28,7 +28,7 @@ const Footer = () => (
   <footer className="footer">
     <div className="container footer-inner">
       <div className="footer-bottom">
-        © 2025 Monolithe. Tous droits réservés. | <a href="mentions-legales.html" style={{color: 'inherit', textDecoration: 'underline'}}>Mentions légales</a>
+        © 2025 Monolithe. Tous droits réservés. | <a href="/mentions-legales/" style={{color: 'inherit', textDecoration: 'underline'}}>Mentions légales</a>
       </div>
     </div>
   </footer>
@@ -291,13 +291,13 @@ function RenovationWebsite() {
           <div className="container header-inner">
             <div className="logo">
               <img src="./images/logo.png" alt="Monolithe logo" />
-              <a href="/index.html">Monolithe</a>
+              <a href="/">Monolithe</a>
             </div>
             <nav className="nav">
-              <a href="index.html" className="nav-link nav-link-active">Accueil</a>
-              <a href="about-us.html" className="nav-link">À Propos</a>
-              <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
-              <a href="contact-us.html" className="nav-link">Contact</a>
+              <a href="/" className="nav-link nav-link-active">Accueil</a>
+              <a href="/about-us/" className="nav-link">À Propos</a>
+              <a href="/tips-and-tricks/" className="nav-link">Astuces</a>
+              <a href="/contact-us/" className="nav-link">Contact</a>
             </nav>
           </div>
         </header>
@@ -358,12 +358,12 @@ function RenovationWebsite() {
             <div className="flex items-center gap-8">
               <div className="logo">
                 <img src="./images/logo.png" alt="Monolithe logo" />
-                <a href="/index.html">Monolithe</a>
+                <a href="/">Monolithe</a>
               </div>
               <nav className="nav hidden-mobile">
-                <a href="about-us.html" className="nav-link">À Propos</a>
-                <a href="tips-and-tricks.html" className="nav-link">Astuces</a>
-                <a href="contact-us.html" className="nav-link">Contact</a>
+                <a href="/about-us/" className="nav-link">À Propos</a>
+                <a href="/tips-and-tricks/" className="nav-link">Astuces</a>
+                <a href="/contact-us/" className="nav-link">Contact</a>
               </nav>
             </div>
             {step < totalQuestions && (
@@ -531,7 +531,7 @@ function RenovationWebsite() {
                     />
                     <span className="checkbox-text">
                       J'accepte que mes données personnelles soient traitées par Monolithe dans le cadre de ma demande de devis et j'ai pris connaissance des{' '}
-                      <a href="mentions-legales.html" target="_blank" rel="noopener noreferrer" className="text-link">
+                      <a href="/mentions-legales/" target="_blank" rel="noopener noreferrer" className="text-link">
                         mentions légales
                       </a>.
                     </span>
@@ -625,7 +625,7 @@ function RenovationWebsite() {
 
             {/* Return Home Button */}
             <div className="text-center">
-              <a href="index.html" className="btn btn-text">
+              <a href="/" className="btn btn-text">
                 Retour à l'accueil
               </a>
             </div>
