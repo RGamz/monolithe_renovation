@@ -297,6 +297,7 @@ function RenovationWebsite() {
               <a href="/" className="nav-link nav-link-active">Accueil</a>
               <a href="/about-us/" className="nav-link">À Propos</a>
               <a href="/tips-and-tricks/" className="nav-link">Astuces</a>
+              <a href="/projects/" className="nav-link">Nos projets</a>
               <a href="/contact-us/" className="nav-link">Contact</a>
             </nav>
           </div>
@@ -318,7 +319,6 @@ function RenovationWebsite() {
               className="btn btn-primary btn-lg"
             >
               Commencer
-              <ArrowRight />
             </button>
 
             <p className="text-small mt-2">

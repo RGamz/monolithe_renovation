@@ -350,6 +350,7 @@ main {
 
 .btn-primary:hover {
   background-color: #262626;
+  padding: var(--spacing-4) var(--spacing-10);
 }
 
 .btn-primary:disabled {
@@ -871,7 +872,6 @@ main {
   background-color: #262626;
 }
 
-
 /* -------------------------
    Team Cards
    ------------------------- */
@@ -907,6 +907,7 @@ main {
   display: flex;
   justify-content: center;
   margin-top: auto;
+  height: 30px;
 }
 
 .team-linkedin {
@@ -923,6 +924,8 @@ main {
 
 .team-linkedin:hover {
   background-color: #004182;
+  width: 45px;
+  height: 45px;
 }
 
 

@@ -380,7 +380,7 @@ Edit [src/_includes/base.njk](src/_includes/base.njk):
 </header>
 ```
 
-Changes apply to ALL pages automatically!
+Changes apply to all pages automatically
 
 #### Edit Page Content
 
