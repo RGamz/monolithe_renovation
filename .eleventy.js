@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy static assets from root to output
   eleventyConfig.addPassthroughCopy({"styles.css": "styles.css"});
+  eleventyConfig.addPassthroughCopy({"styles-pro.css": "styles-pro.css"});
   eleventyConfig.addPassthroughCopy({"app.jsx": "app.jsx"});
   eleventyConfig.addPassthroughCopy({"images": "images"});
 

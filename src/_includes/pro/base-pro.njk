@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - Monolithe PRO</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- PRO Dark Mode Stylesheet -->
+    <link rel="stylesheet" href="/styles-pro.css">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Version Toggle Button -->
+    <a href="/" class="version-toggle">← Version Particuliers</a>
+
+    <!-- Header -->
+    <header class="header header-sticky">
+        <div class="container header-inner">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Monolithe logo" />
+                <a href="/pro/">Monolithe</a>
+                <span class="logo-badge">PRO</span>
+            </div>
+            <nav class="nav">
+                <a href="/pro/" class="nav-link {% if page.url == '/pro/' %}nav-link-active{% endif %}">Accueil</a>
+                <a href="/pro/about-us/" class="nav-link {% if page.url == '/pro/about-us/' %}nav-link-active{% endif %}">À Propos</a>
+                <a href="/pro/contact-us/" class="nav-link {% if page.url == '/pro/contact-us/' %}nav-link-active{% endif %}">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container {{ containerClass | default('container-lg') }} section-hero">
+        {{ content | safe }}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-bottom">
+                © 2025 Monolithe PRO. Tous droits réservés. | <a href="/mentions-legales/" style="color: inherit; text-decoration: underline;">Mentions légales</a>
+            </div>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
