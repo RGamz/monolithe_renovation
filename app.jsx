@@ -299,6 +299,7 @@ function RenovationWebsite() {
               <a href="/tips-and-tricks/" className="nav-link">Astuces</a>
               <a href="/projects/" className="nav-link">Nos projets</a>
               <a href="/contact-us/" className="nav-link">Contact</a>
+              <a href="/pro/" class="version-toggle-consumer">Espace Pro</a>
             </nav>
           </div>
         </header>

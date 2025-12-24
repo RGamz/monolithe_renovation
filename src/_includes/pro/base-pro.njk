@@ -16,9 +16,6 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <!-- Version Toggle Button -->
-    <a href="/" class="version-toggle">← Version Particuliers</a>
-
     <!-- Header -->
     <header class="header header-sticky">
         <div class="container header-inner">
@@ -31,6 +28,7 @@
                 <a href="/pro/" class="nav-link {% if page.url == '/pro/' %}nav-link-active{% endif %}">Accueil</a>
                 <a href="/pro/about-us/" class="nav-link {% if page.url == '/pro/about-us/' %}nav-link-active{% endif %}">À Propos</a>
                 <a href="/pro/contact-us/" class="nav-link {% if page.url == '/pro/contact-us/' %}nav-link-active{% endif %}">Contact</a>
+                <a href="/" class="version-toggle">Version Particuliers</a>
             </nav>
         </div>
     </header>

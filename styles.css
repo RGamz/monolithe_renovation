@@ -233,6 +233,7 @@ main {
 
 .nav {
   display: flex;
+  align-items: center;
   gap: var(--spacing-2);
 }
 
@@ -255,6 +256,34 @@ main {
 .nav-link-active {
   color: var(--color-primary);
   font-weight: var(--font-weight-medium);
+}
+
+/* Version Toggle Button for Consumer Site */
+.version-toggle-consumer {
+    background-color: #171717;
+    border: 1px solid #171717;
+    padding: 0.75rem 1.5rem;
+    color: #ffffff;
+    transition: all 200ms ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.version-toggle-consumer:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-background-dark);
+    border-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .version-toggle-consumer {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
 }
 
 
